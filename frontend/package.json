@@ -1,0 +1,10 @@
+{
+  "name": "sistema-aulas-frontend",
+  "version": "1.0.0",
+  "description": "Frontend del Sistema de Gestión de Aulas",
+  "scripts": {
+    "start": "serve -s . -l 8080"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Sistema de Gestión de Aulas</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Gestión de Aulas</h1>
+        <div class="user-info">
+          <p id="userNameDisplay">Cargando...</p>
+          <p id="userRoleDisplay"></p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="/dashboard.html" class="nav-item active">
+          <span class="nav-item-icon">📊</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="/rooms.html" class="nav-item">
+          <span class="nav-item-icon">🏫</span>
+          <span>Aulas</span>
+        </a>
+        <a href="/reservations.html" class="nav-item">
+          <span class="nav-item-icon">📅</span>
+          <span>Reservas</span>
+        </a>
+        <a href="/resources.html" class="nav-item">
+          <span class="nav-item-icon">💻</span>
+          <span>Recursos</span>
+        </a>
+        <a href="/history.html" class="nav-item">
+          <span class="nav-item-icon">📋</span>
+          <span>Historial</span>
+        </a>
+        <a href="/users.html" class="nav-item" id="usersLink" style="display: none;">
+          <span class="nav-item-icon">👥</span>
+          <span>Usuarios</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn btn-danger btn-block" id="logoutBtn">
+          Cerrar Sesión
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="topbar">
+        <h2>Dashboard</h2>
+        <div id="currentDateTime"></div>
+      </div>
+
+      <div class="content">
+        <!-- Estadísticas -->
+        <div class="stats-grid" id="statsContainer">
+          <!-- Se llenan dinámicamente -->
+        </div>
+
+        <!-- Gráficos y Tablas -->
+        <div class="grid grid-cols-2">
+          <!-- Aulas Más Reservadas -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Aulas Más Reservadas</h3>
+            </div>
+            <div class="card-body">
+              <div class="table-container">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Aula</th>
+                      <th>Módulo</th>
+                      <th>Reservas</th>
+                    </tr>
+                  </thead>
+                  <tbody id="topRoomsTable">
+                    <tr>
+                      <td colspan="3" class="text-center">Cargando...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reservas Próximas -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Próximas Reservas</h3>
+            </div>
+            <div class="card-body">
+              <div class="table-container">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Aula</th>
+                      <th>Fecha</th>
+                      <th>Hora</th>
+                    </tr>
+                  </thead>
+                  <tbody id="upcomingReservationsTable">
+                    <tr>
+                      <td colspan="3" class="text-center">Cargando...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bitácora de Acciones -->
+        <div class="card mt-3">
+          <div class="card-header">
+            <h3 class="card-title">Bitácora de Acciones Recientes</h3>
+          </div>
+          <div class="card-body">
+            <div class="table-container">
+              <table class="table logs-table">
+                <thead>
+                  <tr>
+                    <th>Fecha/Hora</th>
+                    <th>Usuario</th>
+                    <th>Acción</th>
+                    <th>Detalles</th>
+                  </tr>
+                </thead>
+                <tbody id="logsTable">
+                  <tr>
+                    <td colspan="4" class="text-center">Cargando...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

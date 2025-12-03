@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial - Sistema de Gestión de Aulas</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Gestión de Aulas</h1>
+        <div class="user-info">
+          <p id="userNameDisplay">Cargando...</p>
+          <p id="userRoleDisplay"></p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="/dashboard.html" class="nav-item">
+          <span class="nav-item-icon">📊</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="/rooms.html" class="nav-item">
+          <span class="nav-item-icon">🏫</span>
+          <span>Aulas</span>
+        </a>
+        <a href="/reservations.html" class="nav-item">
+          <span class="nav-item-icon">📅</span>
+          <span>Reservas</span>
+        </a>
+        <a href="/resources.html" class="nav-item">
+          <span class="nav-item-icon">💻</span>
+          <span>Recursos</span>
+        </a>
+        <a href="/history.html" class="nav-item active">
+          <span class="nav-item-icon">📋</span>
+          <span>Historial</span>
+        </a>
+        <a href="/users.html" class="nav-item" id="usersLink" style="display: none;">
+          <span class="nav-item-icon">👥</span>
+          <span>Usuarios</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn btn-danger btn-block" id="logoutBtn">
+          Cerrar Sesión
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="topbar">
+        <h2>Historial de Reservas</h2>
+        <button class="btn btn-success" id="exportBtn">
+          Descargar Excel
+        </button>
+      </div>
+
+      <div class="content">
+        <!-- Filtros -->
+        <div class="filters">
+          <div class="filters-grid">
+            <div class="form-group">
+              <label class="form-label">Fecha Inicio</label>
+              <input type="date" class="form-input" id="filterDateStart">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Fecha Fin</label>
+              <input type="date" class="form-input" id="filterDateEnd">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Acción</label>
+              <select class="form-select" id="filterAction">
+                <option value="">Todas</option>
+                <option value="CREATED">Creada</option>
+                <option value="COMPLETED">Completada</option>
+                <option value="CANCELLED">Cancelada</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">&nbsp;</label>
+              <button class="btn btn-primary btn-block" id="applyFiltersBtn">
+                Aplicar Filtros
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla de Historial -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Registro de Historial (<span id="historyCount">0</span>)</h3>
+          </div>
+          <div class="card-body">
+            <div class="table-container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Aula</th>
+                    <th>Instructor</th>
+                    <th>Fecha</th>
+                    <th>Horario</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                    <th>Usuario</th>
+                    <th>Fecha Registro</th>
+                  </tr>
+                </thead>
+                <tbody id="historyTable">
+                  <tr>
+                    <td colspan="9" class="text-center">Cargando...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="/js/history.js"></script>
+</body>
+</html>

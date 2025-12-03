@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aulas - Sistema de Gestión de Aulas</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Gestión de Aulas</h1>
+        <div class="user-info">
+          <p id="userNameDisplay">Cargando...</p>
+          <p id="userRoleDisplay"></p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="/dashboard.html" class="nav-item">
+          <span class="nav-item-icon">📊</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="/rooms.html" class="nav-item active">
+          <span class="nav-item-icon">🏫</span>
+          <span>Aulas</span>
+        </a>
+        <a href="/reservations.html" class="nav-item">
+          <span class="nav-item-icon">📅</span>
+          <span>Reservas</span>
+        </a>
+        <a href="/resources.html" class="nav-item">
+          <span class="nav-item-icon">💻</span>
+          <span>Recursos</span>
+        </a>
+        <a href="/history.html" class="nav-item">
+          <span class="nav-item-icon">📋</span>
+          <span>Historial</span>
+        </a>
+        <a href="/users.html" class="nav-item" id="usersLink" style="display: none;">
+          <span class="nav-item-icon">👥</span>
+          <span>Usuarios</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn btn-danger btn-block" id="logoutBtn">
+          Cerrar Sesión
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="topbar">
+        <h2>Gestión de Aulas</h2>
+      </div>
+
+      <div class="content">
+        <!-- Croquis/Vista de Aulas -->
+        <div class="rooms-grid" id="roomsContainer">
+          <!-- Se llenan dinámicamente -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal QR Code -->
+  <div class="modal" id="qrModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Código QR del Aula</h3>
+        <button class="modal-close" id="closeQrModal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="qr-code-container" id="qrCodeContainer">
+          <!-- QR code se genera aquí -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="closeQrModalBtn">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="/js/rooms.js"></script>
+</body>
+</html>
