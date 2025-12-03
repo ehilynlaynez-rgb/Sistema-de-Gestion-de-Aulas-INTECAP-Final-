@@ -1,5 +1,5 @@
 // API Base URL
-const API_URL = "http://localhost:3000/api"
+const API_URL = "sistema-de-gestion-de-aulas-intecap-final-production.up.railway.app"
 
 // Verificar autenticación
 checkAuth()
